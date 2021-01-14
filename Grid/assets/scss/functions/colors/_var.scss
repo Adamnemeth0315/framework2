@@ -1,0 +1,10 @@
+@use "sass:map";
+@use "get-keys" as *;
+
+@function var($string, $data: colors.$colors) {
+    $keys: get-keys($string);
+    @each $key in $keys {
+        $data: map.het($data, $key);
+    }
+    @return $data;
+}
